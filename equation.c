@@ -97,6 +97,62 @@ int main(int argc, char **argv) {
 		long double c = intaract_mode_implement('c');
 	}
 
+	else {//файловий
+		FILE *fp;
+		char *filename;
+		char ch;
+		filename = argv[1];
+
+   fp = fopen(filename,"r");
+   if ( !fp )
+      {
+        printf("file %s does not exist\n", filename);
+      }
+   else
+      {
+			//write content to the dyn_string
+			char *full_text;
+			full_text = (char*)malloc(sizeof(char));
+			int i = 0, j = 1;
+			while ( (ch = fgetc(fp)) != EOF )
+				{
+					full_text = (char*)realloc(full_text, j * sizeof(char));
+					full_text[i] = ch;
+					i++;
+					j++;
+				}
+			if(full_text[i-1] == '\n') full_text[i-1] = '\0';
+			else {
+				printf("invalid file format\n");
+				return 0;
+			}
+
+			char * a_str;
+			char * b_str;
+			char * c_str;
+
+			char delim[] = " ";
+			char *ptr = strtok(full_text, delim);
+			a_str = stringcpy(ptr);
+			ptr = strtok(NULL, delim);
+
+			b_str = stringcpy(ptr);
+			ptr = strtok(NULL, delim);
+
+			c_str = stringcpy(ptr);
+			ptr = strtok(NULL, delim);
+
+			free(full_text);
+
+			if (!validation('a', a_str)) return 0;
+			if (!validation('b', b_str)) return 0;
+			if (!validation('c', c_str)) return 0;
+
+			sscanf(a_str, "%Lf", &a);
+			sscanf(b_str, "%Lf", &b);
+			sscanf(c_str, "%Lf", &c);
+      }
+	}
 
 	solve_quadratic_equation(a, b, c);
 	return 0;
