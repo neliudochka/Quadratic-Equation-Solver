@@ -1,7 +1,7 @@
 #  Quadratic-Equation-Solver
 ---
-Quadratic Equation Solver as a simple CLI application to solve, as it is understandable for ots name, 
-quadratic equations. It have 2 modes:
+This app is a simple CLI application to solve quadratic equations.  
+It has 2 modes:
 - interactive
 - noninteractive(file)
 
@@ -31,11 +31,10 @@ $ ./equation <file_name>
 
 
 ## Format of the file for noninteractive(file) mode
-you should write coefficients a,b,c this way:
-a\sb\sc\n
-where \s - space character, \n - new line
-If in the format will be some problems, the program won't work
-
+you should write coefficients a, b, c this way:  
+`<a>\s<b>\s<c>\n`\  
+where \s - space character, \n - new line  
+If in the format will be some mistakes, the program won't work, so be carefull  
 
 ## Revert-commit
 You can look on it [here](https://github.com/neliudochka/Quadratic-Equation-Solver/commit/1e1e09a537a14581d6233ac6f18c34727cd591cf)
