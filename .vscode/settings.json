@@ -1,5 +1,6 @@
 {
   "files.associations": {
-    "tgmath.h": "c"
+    "tgmath.h": "c",
+    "sstream": "c"
   }
 }
