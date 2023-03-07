@@ -1,9 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include <malloc.h>
-#include <regex.h>
-
+#include<malloc.h>
+#include<regex.h>
+#include<math.h>
 
 long double validation(char name){
   int valid = 0;
@@ -53,8 +53,28 @@ long double validation(char name){
   return result;
 }
 
+void solve_quadratic_equation(long double a, long double b, long double c) {
+  printf("Equation is: (%Lf) x^2 + (%Lf) x + (%Lf) = 0\n", a, b, c);
+
+	long double D = b*b - 4*a*c;
+	if( D < 0 ) printf("D = %Lf, so there are 0 roots\n", D);
+	else if( D == 0 ) {
+		printf("D = %Lf, so there is 1 root\n", D);
+		long double x1 = (-b + sqrtl (D))/(2*a);
+		printf("x1 = x2 = %Lf\n", x1);
+	}
+	else {
+		printf("D = %Lf, so there are 2 roots\n", D);
+		long double x1 = (-b + sqrtl (D))/(2*a);
+		long double x2 = (-b - sqrtl (D))/(2*a);
+		printf("x1 = %Lf \nx2 = %Lf\n", x1, x2);
+	}
+}
+
 void main() {
   long double a = validation('a');
   long double b = validation('b');
   long double c = validation('c');
+
+	solve_quadratic_equation(a, b, c);
 }
