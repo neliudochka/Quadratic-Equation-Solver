@@ -5,18 +5,6 @@
 #include<regex.h>
 #include<math.h>
 
-char* stringcpy(const char* original) {
-    int size = strlen(original) ;
-    char* copy = malloc(size + 1);
-
-    int i;
-    for(i = 0; original[i] != '\0'; i++) {
-        copy[i] = original[i];
-    }
-    copy[i]=0;
-    return copy;
-}
-
 char * dyn_str_implement (char name) {
 //dynamic string implementation
 	printf("%c = ", name);
@@ -68,6 +56,18 @@ long double intaract_mode_implement(char name) {
 			free(str);
 		}
 	return result;
+}
+
+char* stringcpy(const char* original) {
+    int size = strlen(original) ;
+    char* copy = malloc(size + 1);
+
+    int i;
+    for(i = 0; original[i] != '\0'; i++) {
+        copy[i] = original[i];
+    }
+    copy[i]=0;
+    return copy;
 }
 
 void solve_quadratic_equation(long double a, long double b, long double c) {
@@ -151,7 +151,6 @@ int main(int argc, char **argv) {
 			sscanf(a_str, "%Lf", &a);
 			sscanf(b_str, "%Lf", &b);
 			sscanf(c_str, "%Lf", &c);
-			
       }
 	}
 
